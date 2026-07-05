@@ -23,8 +23,8 @@ restart:
 	$(COMPOSE) restart
 
 clean: down
+	$(COMPOSE) down -v
 	docker system prune -f
-	docker volume rm $(shell docker volume ls -q) 2>/dev/null || true
 
 fclean: clean
 	sudo rm -rf /home/mnazar/data/wordpress
