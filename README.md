@@ -60,7 +60,6 @@ make
 - Admin panel: `https://mnazar.42.fr/wp-admin`
 
 
-ADD MAKE!!!
 ## Resources
 
 - [Docker official documentation](https://docs.docker.com/)
