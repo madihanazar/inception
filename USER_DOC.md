@@ -136,3 +136,7 @@ make down
 make
 docker exec wordpress wp post list --allow-root --path=/var/www/html
 ```
+**Login to database:**
+```bash
+docker exec -it mariadb mysql -u wpuser -p
+```
