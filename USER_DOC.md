@@ -103,12 +103,36 @@ docker logs wordpress
 docker logs mariadb
 ```
 
+
 **Test the website responds:**
 ```bash
 curl -k https://mnazar.42.fr
 ```
 
+**To check the SSL/TLS connection:**
+```bash
+curl -kv https://mnazar.42.fr 2>&1 | grep "SSL connection\|TLS"
+```
+
 **Verify the WordPress users exist:**
 ```bash
 docker exec wordpress wp user list --allow-root --path=/var/www/html
+```
+
+**To show the databases:**
+```bash
+docker exec mariadb mysql -u wpuser -pwppass -e "SHOW DATABASES;"
+```
+**To check the named volumes:**
+```bash
+docker volume ls
+ls /home/mnazar/data/wordpress
+ls /home/mnazar/data/mariadb
+```
+
+**Data persists after restart:**
+```bash
+make down
+make
+docker exec wordpress wp post list --allow-root --path=/var/www/html
 ```
